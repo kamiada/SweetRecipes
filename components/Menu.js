@@ -16,6 +16,7 @@ export default function Menu() {
 				}}
 			/>
 			<JumpingTitle />
+			<ButtonSweetType />
 		</View>
 	);
 }
