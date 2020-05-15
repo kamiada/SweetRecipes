@@ -1,9 +1,13 @@
+import "react-native-gesture-handler";
 import React from "react";
-import {Image, Text, View} from "react-native";
+import {Image, Text, View, TouchableOpacity} from "react-native";
 import styles from "../styles.js";
 import Ellipse from "../assets/Ellipse.png";
 import JumpingTitle from "./JumpingTitle";
-import ButtonSweetType from "./ButtonSweetType";
+import ButtonSweet from "./ButtonSweetType";
+import {NavigationContainer} from "@react-navigation/native";
+import {createStackNavigator} from "@react-navigation/stack";
+import {createDrawerNavigator} from "@react-navigation/drawer";
 
 export default function Menu() {
   return (
@@ -16,7 +20,7 @@ export default function Menu() {
         }}
       />
       <JumpingTitle />
-      <ButtonSweetType />
+      <ButtonSweet />
     </View>
   );
 }

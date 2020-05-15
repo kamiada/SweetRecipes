@@ -1,25 +1,20 @@
 import "react-native-gesture-handler";
-import { NavigationContainer } from "@react-navigation/native";
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Button from "../assets/ExampleButton.png";
-import { TouchableOpacity, Text, Image } from "react-native";
-import styles from "../styles.js";
+import {TouchableOpacity, Image} from "react-native";
+import {useNavigation} from "@react-navigation/native";
 
-class ButtonSweetType extends Component {
-	onPress = () => setCount((prevCount) => prevCount + 1);
-	render() {
-		return (
-			<TouchableOpacity>
-				<Image
-					source={Button}
-					style={{
-						width: 80,
-						height: 80,
-					}}
-				/>
-			</TouchableOpacity>
-		);
-	}
+export default function ButtonSweet({screenName}) {
+  const navigation = useNavigation();
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate(screenName)}>
+      <Image
+        source={Button}
+        style={{
+          width: 80,
+          height: 80,
+        }}
+      />
+    </TouchableOpacity>
+  );
 }
-
-export default ButtonSweetType;
