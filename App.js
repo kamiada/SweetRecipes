@@ -5,6 +5,7 @@ import {NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
 import Menu from "./components/Menu";
 import Navbar from "./components/NavBar";
+import Test from "./components/Test";
 
 function TestScreen1({navigation}) {
   return (
@@ -14,13 +15,16 @@ function TestScreen1({navigation}) {
     </>
   );
 }
-function TestScreen2({navigation}) {
-  return (
-    <>
-      <Navbar />
-      <Button title="test2" onPress={() => navigation.goBack()} />
-    </>
-  );
+// function TestScreen2({navigation}) {
+//   return (
+//     <>
+//       <Navbar />
+//       <Button title="test2" onPress={() => navigation.goBack()} />
+//     </>
+//   );
+// }
+function TestScreenYolo() {
+  return <Test screenName="Screen1" />;
 }
 
 const Stack = createStackNavigator();
@@ -29,7 +33,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Screen1" component={TestScreen1} />
-        <Stack.Screen name="Screen2" component={TestScreen2} />
+        <Stack.Screen name="Screen2" component={TestScreenYolo} />
       </Stack.Navigator>
     </NavigationContainer>
   );
