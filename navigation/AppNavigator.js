@@ -7,7 +7,7 @@ import DrawerNav from "../navigation/RecipesDrawerNavigator";
 const AppNavigator = createStackNavigator(
   {
     Home: Home,
-    Recipes_1: Recipes1,
+    Recipes_1: DrawerNav,
     Recipes_2: DrawerNav,
   },
   {
