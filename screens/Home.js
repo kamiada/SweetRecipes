@@ -1,6 +1,10 @@
 import React from "react";
-import {Text, View, TouchableOpacity, Button, StyleSheet} from "react-native";
-import ScreenName from "../components/ScreenName";
+import {Text, View, TouchableOpacity, Button, Image} from "react-native";
+import JumpingTitle from "../components/JumpingTitle";
+import styles from "../styles.js";
+
+import ButtonDeserts from "../assets/ExampleButton.png";
+
 export default class Home extends React.Component {
   nextScreen = () => {
     this.props.navigation.navigate("Recipes_1");
@@ -8,27 +12,23 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* <View style={styles.circle}> */}
-        <Text>Home Screen</Text>
-        <ScreenName name={"Home"} />
-        {/* </View> */}
-        <Button title="Move to next screen" onPress={this.nextScreen} />
+        <View style={styles.circle}>
+          <View>
+            <TouchableOpacity onPress={this.nextScreen}>
+              <Image
+                source={ButtonDeserts}
+                style={{
+                  width: 80,
+                  height: 80,
+                }}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.centerMe}>
+            <JumpingTitle />
+          </View>
+        </View>
       </View>
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#FDE4E1",
-  },
-  circle: {
-    width: 500,
-    height: 500,
-    borderRadius: 500 / 2,
-    backgroundColor: "#EDACA7",
-    position: "absolute",
-    left: -120,
-    top: -20,
-  },
-});

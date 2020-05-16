@@ -12,6 +12,11 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  centerMe: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   textStyle: {
     fontFamily: "Sylfaen",
     fontSize: 14,
@@ -27,5 +32,12 @@ export default StyleSheet.create({
   },
   iconStyle: {
     backgroundColor: "#EDACA7",
+  },
+  circle: {
+    width: 300,
+    height: 300,
+    borderRadius: 500 / 2,
+    borderWidth: 20,
+    borderColor: "#B8C2DB",
   },
 });
