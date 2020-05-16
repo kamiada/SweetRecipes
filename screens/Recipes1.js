@@ -10,6 +10,10 @@ export default class Recipes1 extends React.Component {
           title="Back to home"
           onPress={() => this.props.navigation.navigate("Home")}
         />
+        <Button
+          title="Go to screen 2"
+          onPress={() => this.props.navigation.navigate("Recipes_2")}
+        />
       </View>
     );
   }

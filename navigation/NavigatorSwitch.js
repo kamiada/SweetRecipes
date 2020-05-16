@@ -10,11 +10,11 @@ import DrawerNav from "./RecipesDrawerNavigator";
 export default createAppContainer(
   createSwitchNavigator(
     {
-      Menu: StackNav,
-      App: DrawerNav,
+      Home: StackNav,
+      Recipes_2: DrawerNav,
     },
     {
-      initialRouteName: "Menu",
+      initialRouteName: "Home",
     }
   )
 );
