@@ -5,9 +5,6 @@ import styles from "../styles.js";
 import Ellipse from "../assets/Ellipse.png";
 import JumpingTitle from "./JumpingTitle";
 import ButtonSweet from "./ButtonSweetType";
-import {NavigationContainer} from "@react-navigation/native";
-import {createStackNavigator} from "@react-navigation/stack";
-import {createDrawerNavigator} from "@react-navigation/drawer";
 
 export default function Menu() {
   return (

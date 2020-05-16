@@ -4,10 +4,9 @@ import Button from "../assets/ExampleButton.png";
 import {TouchableOpacity, Image} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 
-export default function ButtonSweet({screenName}) {
-  const navigation = useNavigation();
+export default function ButtonSweet() {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(screenName)}>
+    <TouchableOpacity>
       <Image
         source={Button}
         style={{

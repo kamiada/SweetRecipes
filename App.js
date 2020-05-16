@@ -1,32 +1,17 @@
-import "react-native-gesture-handler";
+import {createAppContainer} from "react-navigation";
+import {createStackNavigator} from "react-navigation-stack";
+import HomeScreen from "./screens/Home";
+import Recipes_1 from "./screens/Recipes1";
 import React from "react";
-import {Button} from "react-native";
-import {NavigationContainer} from "@react-navigation/native";
-import {createStackNavigator} from "@react-navigation/stack";
-import Menu from "./components/Menu";
-import ButtonSweet from "./components/ButtonSweetType";
-import Test from "./components/Test";
+// import AppNavigator from "./navigation/AppNavigator";
 
-function TestScreen1({navigation}) {
-  return (
-    <>
-      <Menu />
-      <Button title="test" onPress={() => navigation.navigate("Screen2")} />
-    </>
-  );
-}
-function TestScreenYolo() {
-  return <Test screenName="Screen1" />;
-}
-
-const Stack = createStackNavigator();
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Screen1" component={TestScreen1} />
-        <Stack.Screen name="Screen2" component={TestScreenYolo} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+const AppNavigator = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Recipes_1: Recipes_1,
+  },
+  {
+    headerMode: "none",
+  }
+);
+export default createAppContainer(AppNavigator);
