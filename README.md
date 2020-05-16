@@ -5,3 +5,5 @@ The purpose of this project is to learn more about React Native and create simpl
 are used with use of Adobe XD and free stock images found online.
 
 At the end _IT SHOULD_ look like this :
+
+![Alt text](Design\SweetRecipesConcept.JPG?raw=true "SweetRecipesConcept")
