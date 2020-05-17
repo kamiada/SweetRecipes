@@ -44,4 +44,10 @@ export default StyleSheet.create({
     paddingTop: 40,
     backgroundColor: "whitesmoke",
   },
+  trigger: {
+    marginLeft: 27.5,
+    borderRadius: 30,
+    width: 60,
+    height: 60,
+  },
 });

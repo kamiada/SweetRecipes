@@ -5,8 +5,14 @@ import {createDrawerNavigator} from "react-navigation-drawer";
 import Recipes1 from "../screens/Recipes1";
 import Recipes2 from "../screens/Recipes2";
 
-const DrawerNavigation = createDrawerNavigator({
-  One: Recipes1,
-  Two: Recipes2,
-});
+const DrawerNavigation = createDrawerNavigator(
+  {
+    One: Recipes1,
+    Two: Recipes2,
+  },
+  {
+    drawerPosition: "left",
+    drawerBackgroundColor: "#0000FF",
+  }
+);
 export default DrawerNavigation;
