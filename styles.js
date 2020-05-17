@@ -40,4 +40,8 @@ export default StyleSheet.create({
     borderWidth: 20,
     borderColor: "#B8C2DB",
   },
+  header: {
+    paddingTop: 40,
+    backgroundColor: "whitesmoke",
+  },
 });
