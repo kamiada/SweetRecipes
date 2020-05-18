@@ -12,7 +12,7 @@ const DrawerNavigation = createDrawerNavigator(
   },
   {
     drawerPosition: "left",
-    drawerBackgroundColor: "#0000FF",
+    drawerBackgroundColor: "#FAF2F2",
   }
 );
 export default DrawerNavigation;

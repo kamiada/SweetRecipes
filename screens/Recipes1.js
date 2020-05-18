@@ -2,6 +2,7 @@ import React from "react";
 import {Text, View, Button} from "react-native";
 import styles from "../styles.js";
 import Header from "../components/Header";
+import TitleHeader from "../components/TitleHeader";
 
 export default class Recipes1 extends React.Component {
   render() {
@@ -9,6 +10,7 @@ export default class Recipes1 extends React.Component {
       <React.Fragment>
         <Header />
         <View style={styles.container}>
+          <TitleHeader />
           <Button
             title="Back to home"
             onPress={() => this.props.navigation.navigate("Home")}
