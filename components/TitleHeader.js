@@ -8,7 +8,6 @@ import {TouchableOpacity} from "react-native-gesture-handler";
 class TitleHeader extends React.Component {
   constructor(props) {
     super(props);
-    // this.state.SweetsType = props.type;
   }
   render() {
     return (
@@ -16,13 +15,15 @@ class TitleHeader extends React.Component {
         <TouchableOpacity>
           <Ionicons name={"md-arrow-dropleft"} size={90} color={"grey"} />
         </TouchableOpacity>
-        <Text style={styles.titleText}>Lemon Cake</Text>
-        <Ionicons
-          name={"md-arrow-dropright"}
-          size={90}
-          color={"grey"}
-          paddingHorizontal={90}
-        />
+        <Text style={styles.titleText}>{this.props.title}</Text>
+        <TouchableOpacity>
+          <Ionicons
+            name={"md-arrow-dropright"}
+            size={90}
+            color={"grey"}
+            paddingHorizontal={90}
+          />
+        </TouchableOpacity>
       </View>
     );
   }
