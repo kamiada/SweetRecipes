@@ -9,13 +9,19 @@ import IngredientsContainer from "../components/IngredientsContainers";
 import {Ionicons} from "@expo/vector-icons";
 const data = require("../exampleData.json");
 
+
+//function to unpack array
+
+
+
+
 export default class Recipes1 extends React.Component {
   render() {
     return (
       <React.Fragment>
         <Header />
         <View style={styles.container}>
-          <TitleHeader title={data._id} />
+          <TitleHeader title={"none"} />
           <VisualRep />
           <IngredientsContainer />
           <RecipeContainer />
