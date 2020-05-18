@@ -7,6 +7,7 @@ import VisualRep from "../components/VisualRep";
 import RecipeContainer from "../components/RecipeContainer";
 import IngredientsContainer from "../components/IngredientsContainers";
 import {Ionicons} from "@expo/vector-icons";
+const data = require("../exampleData.json");
 
 export default class Recipes1 extends React.Component {
   render() {
@@ -14,7 +15,7 @@ export default class Recipes1 extends React.Component {
       <React.Fragment>
         <Header />
         <View style={styles.container}>
-          <TitleHeader title={"Lemon Cake"} />
+          <TitleHeader title={data._id} />
           <VisualRep />
           <IngredientsContainer />
           <RecipeContainer />

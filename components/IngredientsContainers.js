@@ -7,7 +7,7 @@ class IngredientsContainer extends React.Component {
     return (
       <View paddingVertical={10}>
         <View style={styles.title_container}>
-          <Text>Ingredients</Text>
+          <Text>Ingredients{this.props.ingredients}</Text>
         </View>
       </View>
     );

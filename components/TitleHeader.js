@@ -4,6 +4,7 @@ import Styles from "../styles";
 import {Ionicons} from "@expo/vector-icons";
 import styles from "../styles";
 import {TouchableOpacity} from "react-native-gesture-handler";
+import PropTypes from "prop-types";
 
 class TitleHeader extends React.Component {
   constructor(props) {
@@ -28,4 +29,8 @@ class TitleHeader extends React.Component {
     );
   }
 }
+
+TitleHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 export default TitleHeader;
