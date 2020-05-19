@@ -5,7 +5,7 @@ import styles from "../styles";
 class RecipeContainer extends React.Component {
   render() {
     return (
-      <View paddingVertical={10}>
+      <View paddingVertical={10} paddingHorizontal={20}>
         <View style={styles.recipeContainer}>
           <Text style={styles.recipeText}>Recipe{this.props.recipe}</Text>
         </View>
