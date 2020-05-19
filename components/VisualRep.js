@@ -7,8 +7,8 @@ class VisualRep extends React.Component {
   render() {
     return (
       <View paddingVertical={10}>
-        <View style={styles.title_container}>
-          <Image style={styles.imageContainer} source={this.props.src} />
+        <View style={styles.imageContainer}>
+          <Image style={styles.imageStyle} source={this.props.src} />
         </View>
       </View>
     );

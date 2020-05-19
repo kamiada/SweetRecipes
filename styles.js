@@ -69,12 +69,35 @@ export default StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
   },
-  imageContainer: {
+  imageStyle: {
     marginTop: 16,
     backgroundColor: "#FAF2F2",
     alignItems: "center",
+    paddingVertical: 30,
+    paddingHorizontal: 20,
+  },
+  imageContainer: {
+    flexDirection: "row",
+    backgroundColor: "#FAF2F2",
+    justifyContent: "center",
+    borderRadius: 500 / 2,
+    borderWidth: 3,
+    paddingVertical: 30,
+    paddingHorizontal: 30,
+  },
+  recipeText: {
+    fontFamily: "Cochin",
+    fontSize: 22,
+    paddingVertical: 100,
+    paddingHorizontal: 30,
+  },
+  recipeContainer: {
+    flexDirection: "row",
+    backgroundColor: "#FAF2F2",
+    justifyContent: "center",
+    borderRadius: 500 / 2,
+    borderWidth: 3,
     paddingVertical: 10,
     paddingHorizontal: 20,
   },
-  recipeContainer: {},
 });

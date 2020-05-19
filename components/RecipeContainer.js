@@ -6,8 +6,8 @@ class RecipeContainer extends React.Component {
   render() {
     return (
       <View paddingVertical={10}>
-        <View style={styles.title_container}>
-          <Text>Recipe{this.props.recipe}</Text>
+        <View style={styles.recipeContainer}>
+          <Text style={styles.recipeText}>Recipe{this.props.recipe}</Text>
         </View>
       </View>
     );
