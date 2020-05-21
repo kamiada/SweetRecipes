@@ -45,8 +45,9 @@ export default class Recipes2 extends React.Component {
             currentRecipe = generateCurrentRecipe(recipes);
             console.log(currentRecipe);
             console.log(currentRecipe.index == 1);
+            let iterator = 0;
             {
-              if (currentRecipe.index === 0) {
+              if (currentRecipe.index === iterator) {
                 return (
                   <React.Fragment>
                     <SafeAreaView>
@@ -54,6 +55,10 @@ export default class Recipes2 extends React.Component {
                         <Header />
                         <View style={styles.container}>
                           <Pagination title={currentRecipe.index} />
+                          <Button
+                            title="Iterate +1 - NEXT"
+                            onPress={() => (iterator += 1)}
+                          ></Button>
                         </View>
                       </ScrollView>
                     </SafeAreaView>
