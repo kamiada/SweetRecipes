@@ -28,46 +28,77 @@ const generateCurrentRecipe = (recipe) => ({
 //display only current
 
 export default class Recipes1 extends React.Component {
+  constructor(props) {
+    //constructor to set default state
+    super(props);
+    this.state = {
+      iterator: 0,
+    };
+  }
   render() {
     return (
       <React.Fragment>
         {data.map((recipes) => {
           currRecipe = generateCurrentRecipe(recipes);
-          return (
-            <React.Fragment>
-              <SafeAreaView>
-                <ScrollView>
-                  <Header />
-                  <View style={styles.container}>
-                    <Pagination title={currRecipe.title} />
-                    <VisualRep src={require("../Design/lemoncake.png")} />
-                    <IngredientsContainer
-                      ingredients={currRecipe.ingredients}
-                    />
-                    <RecipeContainer recipe={currRecipe.textRecipe} />
-                    <View>
-                      <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate("Home")}
-                      >
-                        <Ionicons
-                          name={"md-arrow-round-back"}
-                          size={47}
-                          color={"grey"}
+          {
+            if (currRecipe.index === this.state.iterator) {
+              return (
+                <React.Fragment>
+                  <SafeAreaView>
+                    <ScrollView>
+                      <Header />
+                      <View style={styles.container}>
+                        <Pagination title={currRecipe.title} />
+                        <VisualRep src={require("../Design/lemoncake.png")} />
+                        <IngredientsContainer
+                          ingredients={currRecipe.ingredients}
                         />
-                        <Text>Go back</Text>
-                      </TouchableOpacity>
-                    </View>
-                    <Button
-                      title="Go to screen 2"
-                      onPress={() =>
-                        this.props.navigation.navigate("Recipes_2")
-                      }
-                    />
+                        <RecipeContainer recipe={currRecipe.textRecipe} />
+                        <View>
+                          <Button
+                            title="NEXT"
+                            onPress={() =>
+                              this.setState({
+                                iterator: this.state.iterator + 1,
+                              }) && this.props.navigation.push("Recipes_1")
+                            }
+                          ></Button>
+                        </View>
+                        <View>
+                          <TouchableOpacity
+                            onPress={() =>
+                              this.props.navigation.navigate("Home")
+                            }
+                          >
+                            <Ionicons
+                              name={"md-arrow-round-back"}
+                              size={47}
+                              color={"grey"}
+                            />
+                            <Text>Go back</Text>
+                          </TouchableOpacity>
+                        </View>
+                        <Button
+                          title="Go to screen 2"
+                          onPress={() =>
+                            this.props.navigation.navigate("Recipes_2")
+                          }
+                        />
+                      </View>
+                    </ScrollView>
+                  </SafeAreaView>
+                </React.Fragment>
+              );
+            } else {
+              return (
+                <React.Fragment>
+                  <View style={styles.container}>
+                    <Text>Last one</Text>
                   </View>
-                </ScrollView>
-              </SafeAreaView>
-            </React.Fragment>
-          );
+                </React.Fragment>
+              );
+            }
+          }
         })}
       </React.Fragment>
 
