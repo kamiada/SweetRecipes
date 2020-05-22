@@ -37,27 +37,36 @@ const generateCurrentRecipe = (recipe) => ({
 });
 
 export default class Recipes2 extends React.Component {
+  constructor(props) {
+    //constructor to set default state
+    super(props);
+    this.state = {
+      iterator: 0,
+    };
+  }
   render() {
     return (
       <React.Fragment>
         {dataArray.map((recipes) => {
           {
             currentRecipe = generateCurrentRecipe(recipes);
-            console.log(currentRecipe);
-            console.log(currentRecipe.index == 1);
-            let iterator = 0;
+
             {
-              if (currentRecipe.index === iterator) {
+              if (currentRecipe.index === this.state.iterator) {
                 return (
                   <React.Fragment>
                     <SafeAreaView>
                       <ScrollView>
                         <Header />
                         <View style={styles.container}>
-                          <Pagination title={currentRecipe.index} />
+                          <Pagination title={currentRecipe.title} />
                           <Button
                             title="Iterate +1 - NEXT"
-                            onPress={() => (iterator += 1)}
+                            onPress={() =>
+                              this.setState({
+                                iterator: this.state.iterator + 1,
+                              }) && this.props.navigation.push("Recipes_2")
+                            }
                           ></Button>
                         </View>
                       </ScrollView>

@@ -8,7 +8,7 @@ const AppNavigator = createStackNavigator(
   {
     Home: Home,
     Recipes_1: DrawerNav,
-    Recipes_2: DrawerNav,
+    Recipes_2: Recipes2,
   },
   {
     headerMode: "none",
