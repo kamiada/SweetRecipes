@@ -48,22 +48,38 @@ export default class Recipes1 extends React.Component {
                     <ScrollView>
                       <Header />
                       <View style={styles.container}>
-                        <Pagination title={currRecipe.title} />
-                        <VisualRep src={require("../Design/lemoncake.png")} />
-                        <IngredientsContainer
-                          ingredients={currRecipe.ingredients}
-                        />
-                        <RecipeContainer recipe={currRecipe.textRecipe} />
-                        <View>
-                          <Button
-                            title="NEXT"
+                        <View style={styles.title_container}>
+                          <TouchableOpacity>
+                            <Ionicons
+                              name={"md-arrow-dropleft"}
+                              size={90}
+                              color={"grey"}
+                            />
+                          </TouchableOpacity>
+                          <Text style={styles.titleText}>
+                            {currRecipe.title}
+                          </Text>
+                          <TouchableOpacity
                             onPress={() =>
                               this.setState({
                                 iterator: this.state.iterator + 1,
                               }) && this.props.navigation.push("Recipes_1")
                             }
-                          ></Button>
+                          >
+                            <Ionicons
+                              name={"md-arrow-dropright"}
+                              size={90}
+                              color={"grey"}
+                              paddingHorizontal={90}
+                            />
+                          </TouchableOpacity>
                         </View>
+
+                        <VisualRep src={require("../Design/lemoncake.png")} />
+                        <IngredientsContainer
+                          ingredients={currRecipe.ingredients}
+                        />
+                        <RecipeContainer recipe={currRecipe.textRecipe} />
                         <View>
                           <TouchableOpacity
                             onPress={() =>

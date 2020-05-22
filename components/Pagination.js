@@ -6,10 +6,6 @@ import styles from "../styles";
 import {TouchableOpacity} from "react-native-gesture-handler";
 import PropTypes from "prop-types";
 
-const nextWasPressed = () => {
-
-};
-
 class TitleHeader extends React.Component {
   constructor(props) {
     super(props);
