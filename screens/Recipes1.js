@@ -117,36 +117,6 @@ export default class Recipes1 extends React.Component {
           }
         })}
       </React.Fragment>
-
-      // <React.Fragment>
-      //   <SafeAreaView>
-      //     <ScrollView>
-      //       <Header />
-      //       <View style={styles.container}>
-      //         <Pagination title={data.recipes.name} />
-      //         <VisualRep />
-      //         <IngredientsContainer ingredients={data.recipes.ingredients} />
-      //         <RecipeContainer recipe={data.recipes.recipe} />
-      //         <View>
-      //           <TouchableOpacity
-      //             onPress={() => this.props.navigation.navigate("Home")}
-      //           >
-      //             <Ionicons
-      //               name={"md-arrow-round-back"}
-      //               size={47}
-      //               color={"grey"}
-      //             />
-      //             <Text>Go back</Text>
-      //           </TouchableOpacity>
-      //         </View>
-      //         <Button
-      //           title="Go to screen 2"
-      //           onPress={() => this.props.navigation.navigate("Recipes_2")}
-      //         />
-      //       </View>
-      //     </ScrollView>
-      //   </SafeAreaView>
-      // </React.Fragment>
     );
   }
 }
