@@ -15,26 +15,37 @@ import RecipeContainer from "../components/RecipeContainer";
 import IngredientsContainer from "../components/IngredientsContainers";
 import {Ionicons} from "@expo/vector-icons";
 import data from "../exampleData.json";
+import {reset} from "expo/build/AR";
 
-//find current, prev and next
 const generateCurrentRecipe = (recipe) => ({
   index: recipe.index,
   type: recipe.type,
   title: recipe.recipes.name,
+  source: recipe.recipes.source,
   ingredients: recipe.recipes.ingredients,
   textRecipe: recipe.recipes.recipe,
   current: true,
 });
-//display only current
-
 export default class Recipes1 extends React.Component {
   constructor(props) {
-    //constructor to set default state
     super(props);
     this.state = {
       iterator: 0,
     };
+    this.baseState = this.state;
   }
+  resetState = () => {
+    this.setState(this.baseState);
+  };
+  reloadPage = () => {
+    this.props.navigation.push("Recipes_1");
+  };
+  increaseIterator = () => {
+    this.setState({iterator: this.state.iterator + 1});
+  };
+  decreaseIterator = () => {
+    this.setState({iterator: this.state.iterator - 1});
+  };
   render() {
     return (
       <React.Fragment>
@@ -49,7 +60,13 @@ export default class Recipes1 extends React.Component {
                       <Header />
                       <View style={styles.container}>
                         <View style={styles.title_container}>
-                          <TouchableOpacity>
+                          <TouchableOpacity
+                            onPress={() =>
+                              this.state.iterator > 0
+                                ? this.decreaseIterator() && this.reloadPage()
+                                : this.reloadPage()
+                            }
+                          >
                             <Ionicons
                               name={"md-arrow-dropleft"}
                               size={90}
@@ -61,9 +78,7 @@ export default class Recipes1 extends React.Component {
                           </Text>
                           <TouchableOpacity
                             onPress={() =>
-                              this.setState({
-                                iterator: this.state.iterator + 1,
-                              }) && this.props.navigation.push("Recipes_1")
+                              this.increaseIterator() && this.reloadPage()
                             }
                           >
                             <Ionicons
@@ -106,13 +121,9 @@ export default class Recipes1 extends React.Component {
                 </React.Fragment>
               );
             } else {
-              return (
-                <React.Fragment>
-                  <View style={styles.container}>
-                    <Text>Last one</Text>
-                  </View>
-                </React.Fragment>
-              );
+              <View>
+                <Text>Yolo</Text>
+              </View>;
             }
           }
         })}
