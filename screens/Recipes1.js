@@ -19,6 +19,8 @@ const arrayHasIndex = (array, index) => {
   Array.isArray(array) && array.hasOwnProperty(index);
   console.log(array, "array");
   console.log(index, "index");
+  console.log(Array.isArray(array), "is recipes an array?");
+  //currRecipe && recipes are not an array - find a way to make it an array
 };
 
 const generateCurrentRecipe = (recipe) => ({
@@ -77,13 +79,9 @@ export default class Recipes1 extends React.Component {
                         </TouchableOpacity>
                         <Text style={styles.titleText}>{currRecipe.title}</Text>
                         {arrayHasIndex(
-                          currRecipe.index,
+                          Array.from(currRecipe.index),
                           this.state.iterator + 1
                         ) ? (
-                          <View>
-                            <Text>Doesn't exist</Text>
-                          </View>
-                        ) : (
                           <TouchableOpacity
                             onPress={() =>
                               this.increaseIterator() && this.reloadPage()
@@ -96,6 +94,10 @@ export default class Recipes1 extends React.Component {
                               paddingHorizontal={90}
                             />
                           </TouchableOpacity>
+                        ) : (
+                          <View>
+                            <Text>Doesn't exist</Text>
+                          </View>
                         )}
                       </View>
                       {/* if title = Lemon cake, load this pic, else load different pic */}
