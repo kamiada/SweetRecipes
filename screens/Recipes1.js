@@ -15,14 +15,18 @@ import IngredientsContainer from "../components/IngredientsContainers";
 import {Ionicons} from "@expo/vector-icons";
 import data from "../exampleData.json";
 
+const convertToArray = (oldArray) => {
+  let newArray = [];
+  newArray = JSON.parse(oldArray);
+  console.log(newArray, "indexes");
+  return newArray;
+};
+
 const arrayHasIndex = (array, index) => {
   Array.isArray(array) && array.hasOwnProperty(index);
   console.log(array, "array");
-  console.log(index, "index");
   console.log(Array.isArray(array), "is recipes an array?");
-  //currRecipe && recipes are not an array - find a way to make it an array
 };
-
 const generateCurrentRecipe = (recipe) => ({
   index: recipe.index,
   type: recipe.type,
@@ -39,9 +43,6 @@ export default class Recipes1 extends React.Component {
       iterator: 0,
     };
   }
-  resetState = () => {
-    this.setState({iterator: (this.state.iterator = 1)});
-  };
   reloadPage = () => {
     this.props.navigation.push("Recipes_1");
   };
@@ -56,6 +57,7 @@ export default class Recipes1 extends React.Component {
       <React.Fragment>
         {data.map((recipes) => {
           currRecipe = generateCurrentRecipe(recipes);
+          const indexes = convertToArray(recipes.index);
           if (currRecipe.index === this.state.iterator) {
             return (
               <React.Fragment>
@@ -78,10 +80,7 @@ export default class Recipes1 extends React.Component {
                           />
                         </TouchableOpacity>
                         <Text style={styles.titleText}>{currRecipe.title}</Text>
-                        {arrayHasIndex(
-                          Array.from(currRecipe.index),
-                          this.state.iterator + 1
-                        ) ? (
+                        {arrayHasIndex(indexes, this.state.iterator + 1) ? (
                           <TouchableOpacity
                             onPress={() =>
                               this.increaseIterator() && this.reloadPage()
