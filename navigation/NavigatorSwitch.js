@@ -12,6 +12,7 @@ export default createAppContainer(
     {
       Home: StackNav,
       Recipes_2: DrawerNav,
+      Recipes_3: StackNav,
     },
     {
       initialRouteName: "Home",
