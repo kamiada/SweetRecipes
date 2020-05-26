@@ -16,16 +16,11 @@ import {Ionicons} from "@expo/vector-icons";
 import data from "../exampleData.json";
 
 const convertToArray = (oldArray) => {
-  let newArray = [];
-  newArray = JSON.parse(oldArray);
-  console.log(newArray, "indexes");
   return newArray;
 };
 
 const arrayHasIndex = (array, index) => {
   Array.isArray(array) && array.hasOwnProperty(index);
-  console.log(array, "array");
-  console.log(Array.isArray(array), "is recipes an array?");
 };
 const generateCurrentRecipe = (recipe) => ({
   index: recipe.index,
@@ -57,7 +52,9 @@ export default class Recipes1 extends React.Component {
       <React.Fragment>
         {data.map((recipes) => {
           currRecipe = generateCurrentRecipe(recipes);
-          const indexes = convertToArray(recipes.index);
+          {
+            /* const indexes = convertToArray(recipes.index); */
+          }
           if (currRecipe.index === this.state.iterator) {
             return (
               <React.Fragment>
@@ -80,7 +77,19 @@ export default class Recipes1 extends React.Component {
                           />
                         </TouchableOpacity>
                         <Text style={styles.titleText}>{currRecipe.title}</Text>
-                        {arrayHasIndex(indexes, this.state.iterator + 1) ? (
+                        <TouchableOpacity
+                          onPress={() =>
+                            this.increaseIterator() && this.reloadPage()
+                          }
+                        >
+                          <Ionicons
+                            name={"md-arrow-dropright"}
+                            size={90}
+                            color={"grey"}
+                            paddingHorizontal={90}
+                          />
+                        </TouchableOpacity>
+                        {/* {arrayHasIndex(indexes, this.state.iterator + 1) ? (
                           <TouchableOpacity
                             onPress={() =>
                               this.increaseIterator() && this.reloadPage()
@@ -97,10 +106,14 @@ export default class Recipes1 extends React.Component {
                           <View>
                             <Text>Doesn't exist</Text>
                           </View>
-                        )}
+                        )} */}
                       </View>
                       {/* if title = Lemon cake, load this pic, else load different pic */}
-                      <VisualRep src={require("../Design/lemoncake.png")} />
+                      {currRecipe.title === "Strewberry Cake" ? (
+                        <VisualRep src={require("../Design/tarte.png")} />
+                      ) : (
+                        <VisualRep src={require("../Design/lemoncake.png")} />
+                      )}
                       <IngredientsContainer
                         ingredients={currRecipe.ingredients}
                       />
