@@ -41,8 +41,14 @@ export default class Recipes1 extends React.Component {
   reloadPage = () => {
     this.props.navigation.push("Recipes_1");
   };
-  increaseIterator = () => {
-    this.setState({iterator: this.state.iterator + 1});
+  increaseIterator = ( arrLength ) => {
+    console.log('before', arrLength);
+    console.log('before2', this.state.iterator);
+    if(this.state.iterator === arrLength){
+      console.log(this.state.iterator, 'iterator is equal length of data');
+      this.setState({iterator: 0})
+    };
+    this.setState({iterator: this.state.iterator + 1})
   };
   decreaseIterator = () => {
     this.setState({iterator: this.state.iterator - 1});
@@ -63,11 +69,14 @@ export default class Recipes1 extends React.Component {
                     <Header />
                     <View style={styles.container}>
                       <View style={styles.title_container}>
+
+
+
                         <TouchableOpacity
                           onPress={() =>
                             this.state.iterator > 0
                               ? this.decreaseIterator() && this.reloadPage()
-                              : []
+                              : 0
                           }
                         >
                           <Ionicons
@@ -79,7 +88,7 @@ export default class Recipes1 extends React.Component {
                         <Text style={styles.titleText}>{currRecipe.title}</Text>
                         <TouchableOpacity
                           onPress={() =>
-                            this.increaseIterator() && this.reloadPage()
+                            this.increaseIterator(4) && this.reloadPage()
                           }
                         >
                           <Ionicons
@@ -89,25 +98,12 @@ export default class Recipes1 extends React.Component {
                             paddingHorizontal={90}
                           />
                         </TouchableOpacity>
-                        {/* {arrayHasIndex(indexes, this.state.iterator + 1) ? (
-                          <TouchableOpacity
-                            onPress={() =>
-                              this.increaseIterator() && this.reloadPage()
-                            }
-                          >
-                            <Ionicons
-                              name={"md-arrow-dropright"}
-                              size={90}
-                              color={"grey"}
-                              paddingHorizontal={90}
-                            />
-                          </TouchableOpacity>
-                        ) : (
-                          <View>
-                            <Text>Doesn't exist</Text>
-                          </View>
-                        )} */}
                       </View>
+
+
+
+
+
                       {/* if title = Lemon cake, load this pic, else load different pic */}
                       {currRecipe.title === "Strewberry Cake" ? (
                         <VisualRep src={require("../Design/tarte.png")} />

@@ -27,7 +27,7 @@ export default class Home extends React.Component {
               />
             </TouchableOpacity>
           </View>
-          <View>
+          {/* <View>
             <TouchableOpacity onPress={this.screenOfNonCakes}>
               <Image
                 source={ButtonDeserts}
@@ -37,7 +37,7 @@ export default class Home extends React.Component {
                 }}
               />
             </TouchableOpacity>
-          </View>
+          </View> */}
           <View style={styles.centerMe}>
             <JumpingTitle />
           </View>
